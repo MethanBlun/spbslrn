@@ -1,8 +1,8 @@
 import React from "react";
-// import supabase from "./config/supabaseClient";
-alert('hello world')
+import supabase from "./config/supabaseClient";
+
 function App() {
-  // console.log(supabase)
+
   return <h1>hello worlds</h1>
     
 
