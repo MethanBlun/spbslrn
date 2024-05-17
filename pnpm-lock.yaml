@@ -1156,7 +1156,7 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  queue-microtask@1.2.3:
+  queue-microtasks@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
   react-dom@18.3.1:
@@ -2646,7 +2646,7 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  queue-microtask@1.2.3: {}
+  queue-microtasks@1.2.3: {}
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
@@ -2717,7 +2717,7 @@ snapshots:
 
   run-parallel@1.2.0:
     dependencies:
-      queue-microtask: 1.2.3
+      queue-microtasks: 1.2.3
 
   safe-array-concat@1.1.2:
     dependencies:
