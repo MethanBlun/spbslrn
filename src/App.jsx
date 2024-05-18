@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import supabase from "./config/supabaseClient";
 
@@ -8,16 +7,16 @@ function App() {
 
   useEffect(() => {
     const fetchQuotes = async () => {
-      const { data, error } = await supabase.from("learningTable").select();
+      const { data, error } = await supabase.from("learningTables").select();
 
       if (error) {
         setFetchError("Could not fetch tasks");
         setTasks(null);
-   //        console.log(error);
+        //        console.log(error);
       } else {
         setTasks(data);
         setFetchError(null);
-             console.log(data);
+        //  console.log(data);
       }
     };
 
