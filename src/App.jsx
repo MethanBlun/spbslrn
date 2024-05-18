@@ -13,11 +13,11 @@ function App() {
       if (error) {
         setFetchError("Could not fetch tasks");
         setTasks(null);
-        //    console.log(error);
+   //        console.log(error);
       } else {
         setTasks(data);
         setFetchError(null);
-        //     console.log(data);
+             console.log(data);
       }
     };
 
@@ -31,7 +31,7 @@ function App() {
       {tasks && (
         <ul>
           {tasks.map((task) => (
-            <li key={task.id}>{task.title}</li>
+            <li key={task.id}>{task.rating}</li>
           ))}
         </ul>
       )}
