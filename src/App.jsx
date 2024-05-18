@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const fetchQuotes = async () => {
-      const { data, error } = await supabase.from("learningTables").select();
+      const { data, error } = await supabase.from("learningTable").select();
 
       if (error) {
         setFetchError("Could not fetch tasks");
