@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import supabase from "./config/supabaseClient";
-
+import Create from "./create";
 function App() {
   const [fetchError, setFetchError] = useState(null);
   const [tasks, setTasks] = useState(null);
@@ -12,11 +12,9 @@ function App() {
       if (error) {
         setFetchError("Could not fetch tasks");
         setTasks(null);
-        //        console.log(error);
       } else {
         setTasks(data);
         setFetchError(null);
-        //  console.log(data);
       }
     };
 
@@ -30,11 +28,12 @@ function App() {
       {tasks && (
         <ul>
           {tasks.map((task) => (
-            <li key={task.id}>{task.rating}</li>
+            <li key={task.id}>{task.method}</li>
           ))}
         </ul>
       )}
     </div>
+  //  <Create/>
   );
 }
 
