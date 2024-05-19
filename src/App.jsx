@@ -22,18 +22,20 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h3>Hello, I am Bill Gates and today you're gonna see the future</h3>
-      {fetchError && <p>{fetchError}</p>}
-      {tasks && (
-        <ul>
-          {tasks.map((task) => (
-            <li key={task.id}>{task.method}</li>
-          ))}
-        </ul>
-      )}
-    </div>
-  //  <Create/>
+    <>
+      <div>
+        <h3>Hello, I am Bill Gates and today you're gonna see the future</h3>
+        {fetchError && <p>{fetchError}</p>}
+        {tasks && (
+          <ul>
+            {tasks.map((task) => (
+              <li key={task.id}>{task.method}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <Create />
+    </>
   );
 }
 
