@@ -1,4 +1,5 @@
 import { useState } from "react";
+import supabase from "./config/supabaseClient";
 export default function Create() {
   const [title, setTitle] = useState("");
   const [method, setMethod] = useState("");
@@ -12,7 +13,18 @@ export default function Create() {
       setFormError("Remplissez tous les champs correctement");
       return;
     }
-    console.log(title, rating, method);
+    const {data ,error} = await supabase
+    .from('learningTable').insert([{title,method,rating}])
+
+    if(error){
+        console.log(error)
+        setFormError("Remplissez tous les champs correctement");
+     
+    }
+    if(data){
+        console.log(data)
+        setFormError(null)
+    }
   };
 
   return (
