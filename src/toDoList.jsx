@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
-import supabase from "../config/supabaseClient";
-export default  function Todolist() {
+import supabase from "./config/supabaseClient";
+function Todolist() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
   const [formError, setFormError] = useState("");
@@ -10,26 +10,31 @@ export default  function Todolist() {
     setTask(value);
   }
 
-  function handleButtonClick() {
+  async function handleButtonClick() {
     if (task) {
       setTasks((prevTasks) => [...prevTasks, task]);
       setTask("");
+      const {data,error} = await supabase
+      .from('toDoList').insert([{task}])
+      console.log(task)
+
+
     } else {
       alert("Please enter a task!");
     }
   }
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase.from("learningTable").select;
-      if (error) {
-        console.error(error);
-        setFormError("Could not fetch data");
-      } else {
-        console.log(data);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const { data, error } = await supabase.from("learningTable").select;
+  //     if (error) {
+  //       console.error(error);
+  //       setFormError("Could not fetch data");
+  //     } else {
+  //       console.log(data);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   function handleDelete(index) {
     setTasks((prevTasks) => prevTasks.filter((_t, tIndex) => tIndex !== index));
@@ -59,7 +64,7 @@ export default  function Todolist() {
               <input
                 className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-500"
                 value={task}
-                onChange={handleInputChange}
+                onChange={handleInputChange }
                 type="text"
                 placeholder="Enter a task"
               />
@@ -102,3 +107,4 @@ export default  function Todolist() {
     </div>
   );
 }
+export default Todolist

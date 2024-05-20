@@ -1,29 +1,30 @@
 import React, { useState, useEffect } from "react";
 import supabase from "./config/supabaseClient";
 import Create from "./create";
+import Todolist from "./toDoList";
 function App() {
-  const [fetchError, setFetchError] = useState(null);
-  const [tasks, setTasks] = useState(null);
+  // const [fetchError, setFetchError] = useState(null);
+  // const [tasks, setTasks] = useState(null);
 
-  useEffect(() => {
-    const fetchQuotes = async () => {
-      const { data, error } = await supabase.from("learningTable").select();
+  // useEffect(() => {
+  //   const fetchQuotes = async () => {
+  //     const { data, error } = await supabase.from("learningTable").select();
 
-      if (error) {
-        setFetchError("Could not fetch tasks");
-        setTasks(null);
-      } else {
-        setTasks(data);
-        setFetchError(null);
-      }
-    };
+  //     if (error) {
+  //       setFetchError("Could not fetch tasks");
+  //       setTasks(null);
+  //     } else {
+  //       setTasks(data);
+  //       setFetchError(null);
+  //     }
+  //   };
 
-    fetchQuotes();
-  }, []);
+  //   fetchQuotes();
+  // }, []);
 
   return (
     <>
-      <div>
+      {/* <div>
         <h3>Hello, I am Bill Gates and today you're gonna see the future</h3>
         {fetchError && <p>{fetchError}</p>}
         {tasks && (
@@ -33,7 +34,8 @@ function App() {
             ))}
           </ul>
         )}
-      </div>
+      </div> */}
+      <Todolist/>
       <Create />
     </>
   );
